@@ -47,3 +47,6 @@ eval(testMdFile, (file) => (file.code && file.lang === "js" && file.eval===1));
 tangle(testMdFile, (file) => (file.path && file.lang === "js"));
 //  'tangle files: #1 index.js'
 ```
+
+### Changes
+- [1.0.2] `tangle` and `eval` now return object of inputed
