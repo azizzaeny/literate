@@ -19,6 +19,7 @@ var eval = (markdownStr, validation, defaultCtx, requiredCtx) => {
   let codes = takeHasEvaluate.reduce((res, val) => res.concat(`${val.code}\n`), '');
   let ret = evalCode(codes, defaultCtx, requiredCtx);
   return {
+    len : takeHasEvaluate.length,
     validate: validation.toString(),
     ret : ret
   }

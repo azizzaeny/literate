@@ -9,6 +9,7 @@ var tangle = (str, validation) => {
   let groupFile = groupByPath(takeHasPath);
   var writeOut = Object.entries(groupFile).map(([file, contents]) => ((file) ? fs.writeFileSync(file, contents, { flag: 'w+'}) : file, file));  
   return {
+    len : takeHasPath.length,
     validate: validation.toString(),
     out: `tangle files: #${writeOut.length} ${writeOut.join(' ')}`
   }
