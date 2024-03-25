@@ -39,8 +39,7 @@ tangle(testMdFile);
 
 **More example**
 ```js
-eval(string, validatorFn)
-eval(testMdFile, (file) => (file.code && file.lang === "js" && file.eval===1));
+eval(testMdFile, (file) => (file.code && file.lang === "js" && file.eval===1), global, {require, console, module });
 // welcome
 // hai
 
