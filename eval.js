@@ -16,8 +16,12 @@ var eval = (markdownStr, validation, defaultCtx, requiredCtx) => {
   if(!validation) (validation = (b) => b.eval);  
   let blocks = extractCode(markdownStr);
   let takeHasEvaluate = blocks.filter(validation);
-  let codes = takeHasEvaluate.reduce((res, val) => res.concat(`${val.code}\n\n`), '');
-  return evalCode(codes, defaultCtx, requiredCtx);  
+  let codes = takeHasEvaluate.reduce((res, val) => res.concat(`${val.code}\n`), '');
+  let ret = evalCode(codes, defaultCtx, requiredCtx);
+  return {
+    validate: validation.toString(),
+    ret : ret
+  }
 }
     
 module.exports = {eval, evalCode}
